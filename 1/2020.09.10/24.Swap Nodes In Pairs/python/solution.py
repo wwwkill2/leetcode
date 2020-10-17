@@ -1,6 +1,3 @@
-from test.support import swap_attr
-
-
 class Solution:
     def swapPairs(self, head: ListNode) -> ListNode:
         if not head or not head.next:
