@@ -22,3 +22,19 @@ class Solution:
             return dummy.next
         
         return merge(0, len(lists) - 1)
+
+class Solution:
+    def mergeKLists(self, lists: List[ListNode]) -> ListNode:
+        heap = []
+        for i, node in enumerate(lists):
+            if node:
+                heappush(heap, (node.val, i, node))
+        dummy = cur = ListNode()
+        while heap:
+            _, i, node = heappop(heap)
+            cur.next = node
+            cur = cur.next
+            node = node.next
+            if node:
+                heappush(heap, (node.val, i, node))
+        return dummy.next
